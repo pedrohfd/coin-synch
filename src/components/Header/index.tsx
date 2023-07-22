@@ -11,22 +11,34 @@ import {
 export const Header = () => {
   return (
     <HeaderContainer>
-      <Logo />
+      <section>
+        <Logo />
 
-      <NavBar>
-        <ul>
-          <li>About us</li>
-          <li>Top Cryptos</li>
-        </ul>
-      </NavBar>
+        <NavBar>
+          <ul>
+            <li>
+              <button>About us</button>
+            </li>
+            <li>
+              <button>Top Cryptos</button>
+            </li>
+          </ul>
+        </NavBar>
+      </section>
 
-      <CryptoList>
-        <CryptoItem>Bit</CryptoItem>
-      </CryptoList>
+      <section>
+        <CryptoList>
+          <CryptoItem>Bit</CryptoItem>
+          <CryptoItem>Bit</CryptoItem>
+          <CryptoItem>Bit</CryptoItem>
+          <CryptoItem>Bit</CryptoItem>
+          <CryptoItem>Bit</CryptoItem>
+        </CryptoList>
 
-      <SignInButton>Sign in</SignInButton>
+        <SignInButton>Sign in</SignInButton>
 
-      <SignUpButton>Sign up</SignUpButton>
+        <SignUpButton>Sign up</SignUpButton>
+      </section>
     </HeaderContainer>
   )
 }
