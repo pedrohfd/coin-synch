@@ -1,4 +1,5 @@
 import { Logo } from '../Logo'
+import { SignIn } from '../SignIn'
 import {
   CryptoItem,
   CryptoList,
@@ -34,6 +35,8 @@ export const Header = () => {
           <CryptoItem>Bit</CryptoItem>
           <CryptoItem>Bit</CryptoItem>
         </CryptoList>
+
+        <SignIn />
 
         <SignInButton>Sign in</SignInButton>
 

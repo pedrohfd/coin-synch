@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
 
   width: 100%;
 
-  background-color: ${({ theme }) => theme.bgColor};
+  background-color: ${({ theme }) => theme.white};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     padding: 1rem 7rem;
@@ -33,7 +33,7 @@ export const NavBar = styled.nav`
     button {
       font-size: 0.875rem;
 
-      color: ${({ theme }) => theme.textBaseColor};
+      color: ${({ theme }) => theme.textBase};
 
       background: 0;
       border: 0;
@@ -43,7 +43,7 @@ export const NavBar = styled.nav`
       transition: color 0.2s;
 
       &:hover {
-        color: ${({ theme }) => theme.headerHoverColor};
+        color: ${({ theme }) => theme.primary[500]};
       }
     }
   }
@@ -69,7 +69,7 @@ export const SignInButton = styled.button`
     background: 0;
     border: 0;
 
-    color: ${({ theme }) => theme.textBaseColor};
+    color: ${({ theme }) => theme.textBase};
 
     margin-right: 1.5rem;
 
@@ -78,7 +78,7 @@ export const SignInButton = styled.button`
     transition: color 0.2s;
 
     &:hover {
-      color: ${({ theme }) => theme.headerHoverColor};
+      color: ${({ theme }) => theme.primary[500]};
     }
   }
 `
@@ -87,8 +87,8 @@ export const SignUpButton = styled.button`
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     font-size: 0.875rem;
 
-    color: ${({ theme }) => theme.buttonTextColor};
-    background: ${({ theme }) => theme.buttonColor};
+    color: ${({ theme }) => theme.white};
+    background: ${({ theme }) => theme.primary[500]};
 
     border: 0;
     border-radius: 2rem;
@@ -98,7 +98,7 @@ export const SignUpButton = styled.button`
     transition: background-color 0.2s;
 
     &:hover {
-      background: ${({ theme }) => theme.buttonHoverColor};
+      background: ${({ theme }) => theme.primary[600]};
     }
   }
 `
