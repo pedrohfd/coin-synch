@@ -1,4 +1,4 @@
-import { Logo } from '../Logo'
+import { Logo } from '../Svg/Logo'
 import { SignIn } from '../SignIn'
 import {
   CryptoItem,
