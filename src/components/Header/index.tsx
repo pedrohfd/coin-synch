@@ -36,9 +36,9 @@ export const Header = () => {
           <CryptoItem>Bit</CryptoItem>
         </CryptoList>
 
-        <SignIn />
-
-        <SignInButton>Sign in</SignInButton>
+        <SignIn>
+          <SignInButton>Sign in</SignInButton>
+        </SignIn>
 
         <SignUpButton>Sign up</SignUpButton>
       </section>
