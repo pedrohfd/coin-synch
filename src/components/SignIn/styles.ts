@@ -149,6 +149,8 @@ export const FormInputArea = styled.div`
     outline: none;
     background: none;
 
+    cursor: pointer;
+
     color: ${({ theme }) => theme.secondary[300]};
   }
 `
