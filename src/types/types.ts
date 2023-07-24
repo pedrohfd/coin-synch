@@ -1,3 +1,3 @@
 export interface PasswordProps {
-  isPasswordShown: boolean
+  isPasswordShown: string
 }

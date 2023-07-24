@@ -22,10 +22,12 @@ import {
 import { Close } from '../../assets/Svg/Close'
 
 export const SignIn = ({ children }: PropsWithChildren) => {
-  const [isPasswordShown, setIsPasswordShown] = useState(true)
+  const [isPasswordShown, setIsPasswordShown] = useState('password')
 
   const handleShowPassword = () => {
-    setIsPasswordShown(!isPasswordShown)
+    isPasswordShown === 'password'
+      ? setIsPasswordShown('type')
+      : setIsPasswordShown('password')
   }
 
   return (
@@ -65,7 +67,11 @@ export const SignIn = ({ children }: PropsWithChildren) => {
                 <Lock />
 
                 <FormControl asChild>
-                  <input type='password' placeholder='Password' required />
+                  <input
+                    type={isPasswordShown}
+                    placeholder='Password'
+                    required
+                  />
                 </FormControl>
 
                 <button type='button' onClick={handleShowPassword}>
