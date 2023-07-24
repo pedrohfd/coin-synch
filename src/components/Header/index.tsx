@@ -1,5 +1,6 @@
 import { Logo } from '../../assets/Svg/Logo'
 import { SignIn } from '../SignIn'
+import { SignUp } from '../SignUp'
 import {
   CryptoItem,
   CryptoList,
@@ -40,7 +41,9 @@ export const Header = () => {
           <SignInButton>Sign in</SignInButton>
         </SignIn>
 
-        <SignUpButton>Sign up</SignUpButton>
+        <SignUp>
+          <SignUpButton>Sign up</SignUpButton>
+        </SignUp>
       </section>
     </HeaderContainer>
   )
