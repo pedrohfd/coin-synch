@@ -30,11 +30,26 @@ export const Header = () => {
 
       <section>
         <CryptoList>
-          <CryptoItem>Bit</CryptoItem>
-          <CryptoItem>Bit</CryptoItem>
-          <CryptoItem>Bit</CryptoItem>
-          <CryptoItem>Bit</CryptoItem>
-          <CryptoItem>Bit</CryptoItem>
+          <CryptoItem>
+            <span className='coin'>BIT</span>
+            <span className='value'>R$23,62</span>
+            <span className='change'>+7,082</span>
+          </CryptoItem>
+          <CryptoItem>
+            <span className='coin'>BIT</span>
+            <span className='value'>R$23,62</span>
+            <span className='change'>+7,082</span>
+          </CryptoItem>
+          <CryptoItem>
+            <span className='coin'>BIT</span>
+            <span className='value'>R$23,62</span>
+            <span className='change'>+7,082</span>
+          </CryptoItem>
+          <CryptoItem>
+            <span className='coin'>BIT</span>
+            <span className='value'>R$23,62</span>
+            <span className='change'>+7,082</span>
+          </CryptoItem>
         </CryptoList>
 
         <SignIn>

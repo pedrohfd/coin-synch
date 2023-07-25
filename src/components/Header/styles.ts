@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -49,6 +49,19 @@ export const NavBar = styled.nav`
   }
 `
 
+const textAnimation = keyframes`
+from {
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+`
+
 export const CryptoList = styled.ul`
   display: flex;
   list-style: none;
@@ -57,10 +70,40 @@ export const CryptoList = styled.ul`
     gap: 1.5rem;
 
     margin-right: 5rem;
+
+    overflow: hidden;
   }
 `
 
-export const CryptoItem = styled.li``
+export const CryptoItem = styled.li`
+  display: flex;
+  gap: 0.5rem;
+  animation: ${textAnimation} 10s linear infinite;
+
+  .coin {
+    color: ${({ theme }) => theme.secondary[800]};
+    font-size: 0.875rem;
+    line-height: 1rem;
+
+    text-transform: uppercase;
+  }
+
+  .value {
+    color: ${({ theme }) => theme.textBase};
+    font-size: 0.875rem;
+    line-height: 1rem;
+
+    text-transform: uppercase;
+  }
+
+  .change {
+    color: ${({ theme }) => theme.tertiary[700]};
+    font-size: 0.875rem;
+    line-height: 1rem;
+
+    text-transform: uppercase;
+  }
+`
 
 export const SignInButton = styled.button`
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
