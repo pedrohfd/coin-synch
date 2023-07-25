@@ -7,6 +7,8 @@ export const HeaderContainer = styled.header`
 
   width: 100%;
 
+  z-index: 1;
+
   background-color: ${({ theme }) => theme.white};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
