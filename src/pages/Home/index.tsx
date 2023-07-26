@@ -2,16 +2,32 @@ import { Arrow } from '../../assets/Svg/Arrow'
 import { Header } from '../../components/Header'
 import { SignUp } from '../../components/SignUp'
 import {
-  Area,
-  Description,
+  AboutArea,
+  AboutContent,
   FooterWaves,
   HomeContainer,
   HomeContent,
-  RightContent,
-  SignUpButton,
+  HomeDescription,
+  HomeSignUpButton,
+  HomeTitle,
+  HomeRightContent,
   Tags,
-  Title,
+  AboutLeftContent,
+  Card,
+  CardLabel,
+  CardTitle,
+  CardDescription,
+  AboutRightContent,
+  AboutLabel,
+  AboutTitle,
+  AboutDescription,
+  AboutSignUpButton,
 } from './styles'
+import waves from '../../assets/waves.png'
+import { Crypto } from '../../assets/Svg/Crypto'
+import { Currency } from '../../assets/Svg/Currency'
+import { Chart } from '../../assets/Svg/Chart'
+import { Electronics } from '../../assets/Svg/Electronics'
 
 export const Home = () => {
   fetch('http://localhost:3000/users').then((response) =>
@@ -23,19 +39,19 @@ export const Home = () => {
       <Header />
 
       <HomeContent>
-        <RightContent>
-          <Title>Lorem ipsum dolor sit amet, consectetur</Title>
+        <HomeRightContent>
+          <HomeTitle>Lorem ipsum dolor sit amet, consectetur</HomeTitle>
 
-          <Description>
+          <HomeDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
             purus sit amet luctus venenatis, lectus magna fringilla urna,
             porttitor
-          </Description>
+          </HomeDescription>
 
           <SignUp>
-            <SignUpButton>
+            <HomeSignUpButton>
               Sign up now <Arrow />
-            </SignUpButton>
+            </HomeSignUpButton>
           </SignUp>
 
           <span className='tagsArea'>
@@ -43,11 +59,66 @@ export const Home = () => {
             <Tags>NFTs</Tags>
             <Tags>Games</Tags>
           </span>
-        </RightContent>
+        </HomeRightContent>
 
-        <FooterWaves />
+        <FooterWaves src={waves} />
       </HomeContent>
-      <Area />
+      <AboutArea>
+        <AboutContent>
+          <AboutLeftContent>
+            <Card>
+              <Crypto />
+              <CardLabel>For your company</CardLabel>
+              <CardTitle>Crypto Solutions</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam,
+              </CardDescription>
+            </Card>
+            <Card>
+              <Currency />
+              <CardLabel>For your company</CardLabel>
+              <CardTitle>Crypto Solutions</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam,
+              </CardDescription>
+            </Card>
+            <Card>
+              <Chart />
+              <CardLabel>For your company</CardLabel>
+              <CardTitle>Crypto Solutions</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam,
+              </CardDescription>
+            </Card>
+            <Card>
+              <Electronics />
+              <CardLabel>For your company</CardLabel>
+              <CardTitle>Crypto Solutions</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam,
+              </CardDescription>
+            </Card>
+          </AboutLeftContent>
+          <AboutRightContent>
+            <section>
+              <AboutLabel>Lorem ipsum </AboutLabel>
+              <AboutTitle>Lorem ipsum </AboutTitle>
+              <AboutDescription>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
+                aliquam, purus sit amet luctus venenatis, lectus magna fringilla
+                urna, porttitor
+              </AboutDescription>
+              <SignUp>
+                <AboutSignUpButton>Sign up now</AboutSignUpButton>
+              </SignUp>
+            </section>
+          </AboutRightContent>
+        </AboutContent>
+      </AboutArea>
     </HomeContainer>
   )
 }
