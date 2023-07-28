@@ -12,6 +12,7 @@ import {
   Message,
   Submit,
 } from '@radix-ui/react-form'
+import footerWaves from '../../assets/footerWaves.svg'
 
 export const HomeContainer = styled.div`
   overflow-y: visible;
@@ -336,7 +337,6 @@ export const TopCryptosItemTrade = styled.td`
     line-height: 1rem;
   }
 `
-import footerWaves from '../../assets/footerWaves.svg'
 
 export const NewsletterContent = styled.div`
   display: flex;
@@ -447,4 +447,21 @@ export const FormSubmit = styled(Submit)`
   width: 100%;
 
   box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.1);
+`
+
+export const FooterContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.5rem 7rem;
+
+  background: ${({ theme }) => theme.white};
+`
+
+export const FooterCopyright = styled.p`
+  color: ${({ theme }) => theme.textBase};
+
+  font-size: 0.875rem;
+  line-height: 1rem;
 `

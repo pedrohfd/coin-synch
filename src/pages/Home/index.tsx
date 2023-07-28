@@ -44,6 +44,8 @@ import {
   FormControl,
   FormMessage,
   FormSubmit,
+  FooterContent,
+  FooterCopyright,
 } from './styles'
 
 import waves from '../../assets/waves.png'
@@ -53,6 +55,7 @@ import { Chart } from '../../assets/Svg/Chart'
 import { Crypto } from '../../assets/Svg/Crypto'
 import { Currency } from '../../assets/Svg/Currency'
 import { Electronics } from '../../assets/Svg/Electronics'
+import { Logo } from '../../assets/Svg/Logo'
 
 export const Home = () => {
   fetch('http://localhost:3000/users').then((response) =>
@@ -340,6 +343,14 @@ export const Home = () => {
           </FormRoot>
         </NewsletterRightContent>
       </NewsletterContent>
+
+      <FooterContent>
+        <FooterCopyright>
+          Copyright © 2022 - All rights reserved
+        </FooterCopyright>
+
+        <Logo />
+      </FooterContent>
     </HomeContainer>
   )
 }
