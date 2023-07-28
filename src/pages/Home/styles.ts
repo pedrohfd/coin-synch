@@ -13,6 +13,7 @@ import {
   Submit,
 } from '@radix-ui/react-form'
 import footerWaves from '../../assets/footerWaves.svg'
+import { motion } from 'framer-motion'
 
 export const HomeContainer = styled.div`
   overflow-y: visible;
@@ -23,8 +24,8 @@ export const HomeContent = styled.div`
   height: 100vh;
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 
   .tagsArea {
     display: flex;
@@ -35,8 +36,29 @@ export const HomeContent = styled.div`
   }
 `
 
-export const HomeRightContent = styled.section`
+export const HomeRightContent = styled.section``
+
+export const HomeLeftContent = styled.section`
   margin-left: 7rem;
+`
+
+export const HomeCarouselContainer = styled.div`
+  width: 30rem;
+  height: 31rem;
+  overflow: hidden;
+`
+
+export const HomeCarouselWrapper = styled(motion.div)`
+  display: flex;
+  transition: transform 0.3s ease;
+  gap: 1.5rem;
+`
+
+export const HomeCarouselImage = styled(motion.img)`
+  width: 24rem;
+  height: auto;
+
+  transition: opacity 0.3s ease;
 `
 
 export const HomeTitle = styled.h1`

@@ -46,9 +46,18 @@ import {
   FormSubmit,
   FooterContent,
   FooterCopyright,
+  HomeLeftContent,
+  HomeCarouselContainer,
+  HomeCarouselWrapper,
+  HomeCarouselImage,
 } from './styles'
 
+import { useMotionValue, useScroll } from 'framer-motion'
+
 import waves from '../../assets/waves.png'
+import imageCarousel1 from '../../assets/carousel1.svg'
+import imageCarousel2 from '../../assets/carousel2.svg'
+import imageCarousel3 from '../../assets/carousel3.svg'
 
 import { Arrow } from '../../assets/Svg/Arrow'
 import { Chart } from '../../assets/Svg/Chart'
@@ -56,18 +65,52 @@ import { Crypto } from '../../assets/Svg/Crypto'
 import { Currency } from '../../assets/Svg/Currency'
 import { Electronics } from '../../assets/Svg/Electronics'
 import { Logo } from '../../assets/Svg/Logo'
+import { useState } from 'react'
 
 export const Home = () => {
   fetch('http://localhost:3000/users').then((response) =>
     console.log(response.json()),
   )
 
+  const [scroll, setScroll] = useState(0)
+
+  const { scrollY } = useScroll()
+
+  scrollY.on('change', (value) => handleScroll(value))
+
+  const imageOpacity1 = useMotionValue(1)
+  const imageOpacity2 = useMotionValue(0.5)
+  const imageOpacity3 = useMotionValue(0.5)
+
+  const handleScroll = (value: number) => {
+    switch (value) {
+      case 0:
+        setScroll(0)
+        imageOpacity1.set(1)
+        imageOpacity2.set(0.5)
+        imageOpacity3.set(0.5)
+        break
+      case 100:
+        setScroll(-400)
+        imageOpacity1.set(0.5)
+        imageOpacity2.set(1)
+        imageOpacity3.set(0.5)
+        break
+      case 200:
+        setScroll(-800)
+        imageOpacity1.set(0.5)
+        imageOpacity2.set(0.5)
+        imageOpacity3.set(1)
+        break
+    }
+  }
+
   return (
     <HomeContainer>
       <Header />
 
       <HomeContent>
-        <HomeRightContent>
+        <HomeLeftContent>
           <HomeTitle>Lorem ipsum dolor sit amet, consectetur</HomeTitle>
 
           <HomeDescription>
@@ -87,6 +130,32 @@ export const Home = () => {
             <Tags>NFTs</Tags>
             <Tags>Games</Tags>
           </span>
+        </HomeLeftContent>
+
+        <HomeRightContent>
+          <HomeCarouselContainer>
+            <HomeCarouselWrapper
+              style={{
+                translateX: scroll,
+              }}
+            >
+              <HomeCarouselImage
+                src={imageCarousel1}
+                alt='Carousel'
+                style={{ opacity: imageOpacity1 }}
+              />
+              <HomeCarouselImage
+                src={imageCarousel2}
+                alt='Carousel'
+                style={{ opacity: imageOpacity2 }}
+              />
+              <HomeCarouselImage
+                src={imageCarousel3}
+                alt='Carousel'
+                style={{ opacity: imageOpacity3 }}
+              />
+            </HomeCarouselWrapper>
+          </HomeCarouselContainer>
         </HomeRightContent>
 
         <FooterWaves src={waves} />
