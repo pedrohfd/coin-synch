@@ -166,28 +166,50 @@ export const FormControl = styled(Control)`
   padding: 1rem 0;
 
   font-size: 1rem;
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.textBase};
   opacity: 0.55;
 `
 
-export const FormForgetPassword = styled.a`
-  display: block;
+export const FormCheckbox = styled.label`
+  display: flex;
+  opacity: 1;
 
-  text-align: right;
+  input {
+    display: none;
+  }
 
-  font-size: 0.75rem;
-  line-height: 0.875rem;
-  color: ${({ theme }) => theme.secondary[500]};
+  svg {
+    cursor: pointer;
+    overflow: visible;
+  }
 
-  margin-top: 0.5rem;
+  p {
+    margin-left: 1rem;
 
-  cursor: pointer;
+    color: ${({ theme }) => theme.textBase};
 
-  transition: color 0.2s;
+    font-size: 0.875rem;
+    line-height: 1rem;
 
-  &:hover {
-    color: ${({ theme }) => theme.primary[500]};
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .path {
+    fill: none;
+    stroke: ${({ theme }) => theme.primary[500]};
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+  }
+
+  & input:checked ~ svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
   }
 `
 

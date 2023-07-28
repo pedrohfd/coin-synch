@@ -10,6 +10,7 @@ import {
   DialogPortal,
   DialogTitle,
   DialogTrigger,
+  FormCheckbox,
   FormContainer,
   FormControl,
   FormField,
@@ -19,6 +20,8 @@ import {
   SignIn,
 } from './styles'
 import { Close } from '../../assets/Svg/Close'
+import { People } from '../../assets/Svg/People'
+import { Check } from '../../assets/Svg/Check'
 
 export const SignUp = ({ children }: PropsWithChildren) => {
   const [isPasswordShown, setIsPasswordShown] = useState('password')
@@ -56,21 +59,20 @@ export const SignUp = ({ children }: PropsWithChildren) => {
           <FormContainer>
             <FormField name='name'>
               <FormInputArea>
-                <Letter />
+                <People />
 
                 <FormControl asChild>
-                  <input type='text' placeholder='Name' required />
+                  <input
+                    type='text'
+                    placeholder='Name'
+                    required
+                    pattern="[A-Za-zÀ-ÿ\s']+"
+                  />
                 </FormControl>
               </FormInputArea>
 
-              <FormMessage name='name' match='valueMissing'>
-                Enter your name
-              </FormMessage>
-              <FormMessage
-                match={(value: string, formData: FormData) =>
-                  value !== formData.get('password')
-                }
-              >
+              <FormMessage match='valueMissing'>Enter your name</FormMessage>
+              <FormMessage match='patternMismatch'>
                 Please provide a valid name
               </FormMessage>
             </FormField>
@@ -144,6 +146,26 @@ export const SignUp = ({ children }: PropsWithChildren) => {
                 }
               >
                 Password confirmation does not match
+              </FormMessage>
+            </FormField>
+
+            <FormField name='checkbox'>
+              <div className='checkbox'>
+                <FormControl asChild>
+                  <FormCheckbox className='container'>
+                    <input type='checkbox' required />
+                    <Check />
+
+                    <p>
+                      I have read and accept the <span>Privacy Policy</span> and{' '}
+                      <span>Terms of User Sign up.</span>
+                    </p>
+                  </FormCheckbox>
+                </FormControl>
+              </div>
+
+              <FormMessage match='valueMissing'>
+                You must accept the terms and conditions
               </FormMessage>
             </FormField>
 
