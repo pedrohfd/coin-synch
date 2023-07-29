@@ -22,9 +22,9 @@ import { Close } from '../../assets/Svg/Close'
 import { People } from '../../assets/Svg/People'
 import { Check } from '../../assets/Svg/Check'
 import { useSignUpController } from './controller'
-import { SignUpProps } from '../../types/types'
+import { PropsWithChildren } from 'react'
 
-export const SignUp = ({ children }: SignUpProps) => {
+export const SignUp = ({ children }: PropsWithChildren) => {
   const {
     handleOpenSignInModal,
     handleCloseSignUpModal,

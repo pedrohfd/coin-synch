@@ -18,7 +18,3 @@ export interface CoinStoreProps {
   setCoins: (coins: CoinProps[]) => void
   getCoins: () => void
 }
-
-export interface SignUpProps {
-  children: React.ReactNode
-}
