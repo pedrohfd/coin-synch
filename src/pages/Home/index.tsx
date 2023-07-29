@@ -52,7 +52,7 @@ import {
   HomeCarouselImage,
 } from './styles'
 
-import { useMotionValue, useScroll } from 'framer-motion'
+import { useMotionValue, useScroll, scroll as test } from 'framer-motion'
 
 import waves from '../../assets/waves.png'
 import imageCarousel1 from '../../assets/carousel1.svg'
@@ -76,32 +76,33 @@ export const Home = () => {
 
   const { scrollY } = useScroll()
 
-  scrollY.on('change', (value) => handleScroll(value))
+  scrollY.on('change', (value) => {
+    handleScroll(value)
+    test((progress) => console.log(progress))
+  })
 
   const imageOpacity1 = useMotionValue(1)
   const imageOpacity2 = useMotionValue(0.5)
   const imageOpacity3 = useMotionValue(0.5)
 
   const handleScroll = (value: number) => {
-    switch (value) {
-      case 0:
-        setScroll(0)
-        imageOpacity1.set(1)
-        imageOpacity2.set(0.5)
-        imageOpacity3.set(0.5)
-        break
-      case 100:
-        setScroll(-400)
-        imageOpacity1.set(0.5)
-        imageOpacity2.set(1)
-        imageOpacity3.set(0.5)
-        break
-      case 200:
-        setScroll(-800)
-        imageOpacity1.set(0.5)
-        imageOpacity2.set(0.5)
-        imageOpacity3.set(1)
-        break
+    if (value < 0 && value <= 99) {
+      setScroll(0)
+      imageOpacity1.set(1)
+      imageOpacity2.set(0.5)
+      imageOpacity3.set(0.5)
+    }
+    if (value >= 100 && value <= 199) {
+      setScroll(-400)
+      imageOpacity1.set(0.5)
+      imageOpacity2.set(1)
+      imageOpacity3.set(0.5)
+    }
+    if (value >= 200) {
+      setScroll(-800)
+      imageOpacity1.set(0.5)
+      imageOpacity2.set(0.5)
+      imageOpacity3.set(1)
     }
   }
 
