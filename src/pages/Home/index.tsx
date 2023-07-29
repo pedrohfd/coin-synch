@@ -130,7 +130,7 @@ export const Home = () => {
         <FooterWaves src={waves} />
       </HomeContent>
 
-      <AboutContent>
+      <AboutContent id='about'>
         <AboutLeftContent>
           <Card>
             <Crypto />
@@ -187,7 +187,7 @@ export const Home = () => {
         </AboutRightContent>
       </AboutContent>
 
-      <TopCryptosContent>
+      <TopCryptosContent id='top-cryptos'>
         <TopCryptosTitle>Top Cryptos</TopCryptosTitle>
 
         <CollapsibleRoot>

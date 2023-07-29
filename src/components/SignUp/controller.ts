@@ -26,8 +26,11 @@ export const useSignUpController = () => {
     setIsOpenSignInModal(true)
   }
 
-  const handleCloseSignUpModal = () => {
+  const handleCloseSignUpModal = async () => {
     setIsOpenSignUpModal(false)
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }, 10)
   }
 
   return {

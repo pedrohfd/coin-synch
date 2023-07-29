@@ -12,7 +12,12 @@ import {
 } from './styles'
 
 export const Header = () => {
-  const { handleOpenSignInModal, handleOpenSignUpModal } = useHeaderController()
+  const {
+    handleOpenSignInModal,
+    handleOpenSignUpModal,
+    handleScrollToAbout,
+    handleScrollToTopCryptos,
+  } = useHeaderController()
 
   return (
     <HeaderContainer>
@@ -22,10 +27,10 @@ export const Header = () => {
         <NavBar>
           <ul>
             <li>
-              <button>About us</button>
+              <button onClick={handleScrollToAbout}>About us</button>
             </li>
             <li>
-              <button>Top Cryptos</button>
+              <button onClick={handleScrollToTopCryptos}>Top Cryptos</button>
             </li>
           </ul>
         </NavBar>
