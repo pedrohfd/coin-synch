@@ -195,6 +195,12 @@ export const AboutSignUpButton = styled.button`
 
   border-radius: 2rem;
   background: ${({ theme }) => theme.primary[500]};
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary[600]};
+  }
 `
 
 export const Card = styled.div`

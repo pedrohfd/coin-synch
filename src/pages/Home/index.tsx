@@ -52,8 +52,6 @@ import {
   HomeCarouselImage,
 } from './styles'
 
-import { useMotionValue, useScroll, scroll as test } from 'framer-motion'
-
 import waves from '../../assets/waves.png'
 import imageCarousel1 from '../../assets/carousel1.svg'
 import imageCarousel2 from '../../assets/carousel2.svg'
@@ -65,46 +63,16 @@ import { Crypto } from '../../assets/Svg/Crypto'
 import { Currency } from '../../assets/Svg/Currency'
 import { Electronics } from '../../assets/Svg/Electronics'
 import { Logo } from '../../assets/Svg/Logo'
-import { useState } from 'react'
+import { useHomeController } from './controller'
 
 export const Home = () => {
-  fetch('http://localhost:3000/users').then((response) =>
-    console.log(response.json()),
-  )
-
-  const [scroll, setScroll] = useState(0)
-
-  const { scrollY } = useScroll()
-
-  scrollY.on('change', (value) => {
-    handleScroll(value)
-    test((progress) => console.log(progress))
-  })
-
-  const imageOpacity1 = useMotionValue(1)
-  const imageOpacity2 = useMotionValue(0.5)
-  const imageOpacity3 = useMotionValue(0.5)
-
-  const handleScroll = (value: number) => {
-    if (value <= 0 && value <= 99) {
-      setScroll(0)
-      imageOpacity1.set(1)
-      imageOpacity2.set(0.5)
-      imageOpacity3.set(0.5)
-    }
-    if (value >= 100 && value <= 199) {
-      setScroll(-400)
-      imageOpacity1.set(0.5)
-      imageOpacity2.set(1)
-      imageOpacity3.set(0.5)
-    }
-    if (value >= 200) {
-      setScroll(-800)
-      imageOpacity1.set(0.5)
-      imageOpacity2.set(0.5)
-      imageOpacity3.set(1)
-    }
-  }
+  const {
+    handleOpenSignUpModal,
+    scroll,
+    imageOpacity1,
+    imageOpacity2,
+    imageOpacity3,
+  } = useHomeController()
 
   return (
     <HomeContainer>
@@ -121,7 +89,7 @@ export const Home = () => {
           </HomeDescription>
 
           <SignUp>
-            <HomeSignUpButton>
+            <HomeSignUpButton onClick={handleOpenSignUpModal}>
               Sign up now <Arrow />
             </HomeSignUpButton>
           </SignUp>
@@ -211,7 +179,9 @@ export const Home = () => {
               urna, porttitor
             </AboutDescription>
             <SignUp>
-              <AboutSignUpButton>Sign up now</AboutSignUpButton>
+              <AboutSignUpButton onClick={handleOpenSignUpModal}>
+                Sign up now
+              </AboutSignUpButton>
             </SignUp>
           </section>
         </AboutRightContent>
