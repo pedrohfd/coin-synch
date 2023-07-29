@@ -475,6 +475,12 @@ export const FormSubmit = styled(Submit)`
   width: 100%;
 
   box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.1);
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary[600]};
+  }
 `
 
 export const FooterContent = styled.div`
