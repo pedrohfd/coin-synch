@@ -48,6 +48,8 @@ export const DialogOverlay = styled(Overlay)`
   position: fixed;
   inset: 0;
   animation: ${overlayShow} 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  z-index: 1;
 `
 
 export const DialogClose = styled(Close)`
@@ -87,6 +89,8 @@ export const DialogContent = styled(Content)`
   &:focus {
     outline: none;
   }
+
+  z-index: 1;
 `
 
 export const DialogTitle = styled(Title)`
