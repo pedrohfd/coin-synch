@@ -1,30 +1,23 @@
 import { useCoinStore } from '../../store/coin.store'
-import { useMotionValue, useScroll, scroll as test } from 'framer-motion'
-import { useState } from 'react'
+import { useMotionValue, useScroll } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { usersApi } from '../../server/api'
 
 export const useHomeController = () => {
   const { setIsOpenSignUpModal } = useCoinStore()
+  const { scrollY } = useScroll()
+  const [scroll, setScroll] = useState(0)
+  const imageOpacity1 = useMotionValue(1)
+  const imageOpacity2 = useMotionValue(0.5)
+  const imageOpacity3 = useMotionValue(0.5)
+
+  scrollY.on('change', (value) => {
+    handleScroll(value)
+  })
 
   const handleOpenSignUpModal = () => {
     setIsOpenSignUpModal(true)
   }
-
-  fetch('http://localhost:3000/users').then((response) =>
-    console.log(response.json()),
-  )
-
-  const [scroll, setScroll] = useState(0)
-
-  const { scrollY } = useScroll()
-
-  scrollY.on('change', (value) => {
-    handleScroll(value)
-    test((progress) => console.log(progress))
-  })
-
-  const imageOpacity1 = useMotionValue(1)
-  const imageOpacity2 = useMotionValue(0.5)
-  const imageOpacity3 = useMotionValue(0.5)
 
   const handleScroll = (value: number) => {
     if (value >= 0 && value <= 99) {
@@ -46,6 +39,16 @@ export const useHomeController = () => {
       imageOpacity3.set(1)
     }
   }
+
+  const handleGetUsers = async () => {
+    const response = await usersApi.get('users')
+
+    console.log(response)
+  }
+
+  useEffect(() => {
+    handleGetUsers()
+  }, [])
 
   return {
     handleOpenSignUpModal,
