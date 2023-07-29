@@ -1,6 +1,7 @@
 import { Logo } from '../../assets/Svg/Logo'
 import { SignIn } from '../SignIn'
 import { SignUp } from '../SignUp'
+import { useHeaderController } from './controller'
 import {
   CryptoItem,
   CryptoList,
@@ -11,6 +12,8 @@ import {
 } from './styles'
 
 export const Header = () => {
+  const { handleOpenSignInModal, handleOpenSignUpModal } = useHeaderController()
+
   return (
     <HeaderContainer>
       <section>
@@ -53,11 +56,11 @@ export const Header = () => {
         </CryptoList>
 
         <SignIn>
-          <SignInButton>Sign in</SignInButton>
+          <SignInButton onClick={handleOpenSignInModal}>Sign in</SignInButton>
         </SignIn>
 
         <SignUp>
-          <SignUpButton>Sign up</SignUpButton>
+          <SignUpButton onClick={handleOpenSignUpModal}>Sign up</SignUpButton>
         </SignUp>
       </section>
     </HeaderContainer>

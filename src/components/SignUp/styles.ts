@@ -22,7 +22,7 @@ const overlayShow = keyframes`
     opacity: 0;
   }
   to {
-    opacity: 0.89;
+    opacity: 0.55;
   }
 `
 

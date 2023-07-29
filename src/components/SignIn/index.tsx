@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren } from 'react'
 import { Eye } from '../../assets/Svg/Eye'
 import { Letter } from '../../assets/Svg/Letter'
 import { Lock } from '../../assets/Svg/Lock'
@@ -20,24 +20,25 @@ import {
   SignUp,
 } from './styles'
 import { Close } from '../../assets/Svg/Close'
+import { useSignInController } from './controller'
 
 export const SignIn = ({ children }: PropsWithChildren) => {
-  const [isPasswordShown, setIsPasswordShown] = useState('password')
-
-  const handleShowPassword = () => {
-    isPasswordShown === 'password'
-      ? setIsPasswordShown('type')
-      : setIsPasswordShown('password')
-  }
+  const {
+    handleCloseSignInModal,
+    handleOpenSignUpModal,
+    handleShowPassword,
+    isOpenSignInModal,
+    isPasswordShown,
+  } = useSignInController()
 
   return (
-    <DialogContainer>
+    <DialogContainer open={isOpenSignInModal}>
       <DialogTrigger asChild>{children}</DialogTrigger>
 
       <DialogPortal>
-        <DialogOverlay />
+        <DialogOverlay onClick={handleCloseSignInModal} />
         <DialogContent>
-          <DialogClose>
+          <DialogClose onClick={handleCloseSignInModal}>
             <Close />
           </DialogClose>
 
@@ -96,7 +97,7 @@ export const SignIn = ({ children }: PropsWithChildren) => {
 
           <SignUp>
             Don't have an account?{' '}
-            <button type='button'>
+            <button type='button' onClick={handleOpenSignUpModal}>
               Sign up to <span className='coin'>Coin</span>
               <span className='synch'>Synch</span>
             </button>

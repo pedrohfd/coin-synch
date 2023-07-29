@@ -1,4 +1,3 @@
-import { PropsWithChildren, useState } from 'react'
 import { Eye } from '../../assets/Svg/Eye'
 import { Letter } from '../../assets/Svg/Letter'
 import { Lock } from '../../assets/Svg/Lock'
@@ -22,32 +21,28 @@ import {
 import { Close } from '../../assets/Svg/Close'
 import { People } from '../../assets/Svg/People'
 import { Check } from '../../assets/Svg/Check'
+import { useSignUpController } from './controller'
+import { SignUpProps } from '../../types/types'
 
-export const SignUp = ({ children }: PropsWithChildren) => {
-  const [isPasswordShown, setIsPasswordShown] = useState('password')
-  const [isConfirmPasswordShown, setIsConfirmPasswordShown] =
-    useState('password')
-
-  const handleShowPassword = () => {
-    isPasswordShown === 'password'
-      ? setIsPasswordShown('type')
-      : setIsPasswordShown('password')
-  }
-
-  const handleShowConfirmPassword = () => {
-    isConfirmPasswordShown === 'password'
-      ? setIsConfirmPasswordShown('type')
-      : setIsConfirmPasswordShown('password')
-  }
+export const SignUp = ({ children }: SignUpProps) => {
+  const {
+    handleOpenSignInModal,
+    handleCloseSignUpModal,
+    isOpenSignUpModal,
+    handleShowPassword,
+    handleShowConfirmPassword,
+    isPasswordShown,
+    isConfirmPasswordShown,
+  } = useSignUpController()
 
   return (
-    <DialogContainer>
+    <DialogContainer open={isOpenSignUpModal}>
       <DialogTrigger asChild>{children}</DialogTrigger>
 
       <DialogPortal>
-        <DialogOverlay />
+        <DialogOverlay onClick={handleCloseSignUpModal} />
         <DialogContent>
-          <DialogClose>
+          <DialogClose onClick={handleCloseSignUpModal}>
             <Close />
           </DialogClose>
 
@@ -176,7 +171,7 @@ export const SignUp = ({ children }: PropsWithChildren) => {
 
           <SignIn>
             Already have an account?{' '}
-            <button type='button'>
+            <button type='button' onClick={handleOpenSignInModal}>
               Sign in to <span className='coin'>Coin</span>
               <span className='synch'>Synch</span>
             </button>

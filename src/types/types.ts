@@ -8,3 +8,17 @@ export interface CoinProps {
   price: number
   icon: string
 }
+
+export interface CoinStoreProps {
+  isOpenSignInModal: boolean
+  setIsOpenSignInModal: (isOpenSignInModal: boolean) => void
+  isOpenSignUpModal: boolean
+  setIsOpenSignUpModal: (isOpenSignUpModal: boolean) => void
+  coins: CoinProps[]
+  setCoins: (coins: CoinProps[]) => void
+  getCoins: () => void
+}
+
+export interface SignUpProps {
+  children: React.ReactNode
+}

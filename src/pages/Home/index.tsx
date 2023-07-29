@@ -86,7 +86,7 @@ export const Home = () => {
   const imageOpacity3 = useMotionValue(0.5)
 
   const handleScroll = (value: number) => {
-    if (value < 0 && value <= 99) {
+    if (value <= 0 && value <= 99) {
       setScroll(0)
       imageOpacity1.set(1)
       imageOpacity2.set(0.5)

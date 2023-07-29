@@ -170,7 +170,6 @@ export const FormControl = styled(Control)`
   padding: 1rem 0;
 
   font-size: 1rem;
-  line-height: 1.5rem;
   color: ${({ theme }) => theme.textBase};
   opacity: 0.55;
 `
